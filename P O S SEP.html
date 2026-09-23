@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshMart Grocery POS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span>🛒</span><div><b>FreshMart</b><small>Grocery POS</small></div></div>
+      <nav>
+        <button class="nav-item active">🏠 <span>Dashboard</span></button>
+        <button class="nav-item">🛍️ <span>Point of Sale</span></button>
+        <button class="nav-item">📦 <span>Inventory</span></button>
+        <button class="nav-item">📊 <span>Sales Report</span></button>
+      </nav>
+      <div class="store-card"><span>●</span> Store Open<br><small>Ready for sales</small></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><h1>Point of Sale</h1><p id="dateTime"></p></div>
+        <div class="cashier">👤 <span>Cashier</span><b>Admin</b></div>
+      </header>
+
+      <section class="stats">
+        <div class="stat"><span>Today's Sales</span><strong id="salesStat">₦0</strong><small>Completed sales</small></div>
+        <div class="stat"><span>Transactions</span><strong id="transactionStat">0</strong><small>Today's orders</small></div>
+        <div class="stat"><span>Products</span><strong id="productStat">0</strong><small>Available products</small></div>
+        <div class="stat"><span>Low Stock</span><strong id="lowStockStat">0</strong><small>Needs restocking</small></div>
+      </section>
+
+      <div class="content-grid">
+        <section class="products-panel">
+          <div class="section-head">
+            <div><h2>Products</h2><p>Select an item to add it to the cart.</p></div>
+            <input id="search" type="search" placeholder="🔍 Search products...">
+          </div>
+          <div id="categories" class="categories"></div>
+          <div id="products" class="product-grid"></div>
+        </section>
+
+        <aside class="cart-panel">
+          <div class="cart-head"><h2>Current Order</h2><button id="clearCart">Clear</button></div>
+          <div id="cart" class="cart-list"><div class="empty">🛍️<br><b>Your cart is empty</b><small>Add products to begin</small></div></div>
+
+          <div class="summary">
+            <div><span>Subtotal</span><b id="subtotal">₦0</b></div>
+            <div><span>Tax (5%)</span><b id="tax">₦0</b></div>
+            <div class="grand"><span>Total</span><strong id="total">₦0</strong></div>
+          </div>
+
+          <label class="pay-label">Cash Received</label>
+          <input id="cash" class="cash" type="number" min="0" placeholder="Enter amount received">
+          <div class="change"><span>Change</span><b id="change">₦0</b></div>
+          <button id="pay" class="pay-btn">💳 Complete Payment</button>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <div id="receiptModal" class="modal hidden">
+    <div class="receipt">
+      <button class="close" id="closeReceipt">×</button>
+      <div id="receiptContent"></div>
+      <button class="print" onclick="window.print()">🖨️ Print Receipt</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
